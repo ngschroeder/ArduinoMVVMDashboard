@@ -10,3 +10,7 @@ The desktop application uses MVVM (with only bindings, no code-behind) to connec
 ### Board Diagram
 
 ![ArduinoMonitor_bb](https://user-images.githubusercontent.com/16778828/110229295-62c34e80-7ed6-11eb-84c9-bcf18a295495.png)
+
+### Application
+
+<img width="281" alt="Screen Shot 2021-03-07 at 12 07 43 AM" src="https://user-images.githubusercontent.com/16778828/110229686-4bd22b80-7ed9-11eb-97a3-41f2c06bb7a6.png">
