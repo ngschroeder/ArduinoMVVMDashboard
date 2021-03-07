@@ -22,6 +22,7 @@ int contrast = 75;
 float brightnessFactor = 0.80;
 bool sendLoop = false;  
 bool tickCycles = true;
+bool checkingPort = false;
 LiquidCrystal lcd(7, 8, 5, 4, 3, 2);  
 
 void setup() {
@@ -36,7 +37,7 @@ void setup() {
 }
 
 void loop() {
-  checkPort();
+  checkPort();  
   if(tickCycles){
     lcd.setCursor(0, 1);
     lcd.print(cycle); 
@@ -71,32 +72,32 @@ void checkPort() {
   while (Serial.available())
   {
     incomingString = Serial.readStringUntil('\n');
-  }
-  if (incomingString == "getDist") {
-    sendLoop = true;
-    oldDistance = -1;
-  }
-  if (incomingString == "stopDist") {
-    sendLoop = false;
-  }
-  if (incomingString == "changeUnits") {
-    if(units == "cm"){
-      units = "in";
-    }else{
-      units = "cm";
+    if (incomingString == "getDist") {
+      sendLoop = true;
+      oldDistance = -1;
     }
-  }
-  if (incomingString.startsWith("lcd1")){
-    incomingString.replace("lcd1:", "");
-    lcd.setCursor(0, 0);
-    lcd.print(incomingString);
-    tickCycles = false;
-  }
-  if (incomingString.startsWith("lcd2")){
-    incomingString.replace("lcd2:", "");
-    lcd.setCursor(0, 1);
-    lcd.print(incomingString);
-    tickCycles = false;
+    if (incomingString == "stopDist") {
+      sendLoop = false;
+    }
+    if (incomingString == "changeUnits") {
+      if(units == "cm"){
+        units = "in";
+      }else{
+        units = "cm";
+      }
+    }
+    if (incomingString.startsWith("lcd1")){
+      incomingString.replace("lcd1:", "");
+      lcd.setCursor(0, 0);
+      lcd.print(incomingString);
+      tickCycles = false;
+    }
+    if (incomingString.startsWith("lcd2")){
+      incomingString.replace("lcd2:", "");
+      lcd.setCursor(0, 1);
+      lcd.print(incomingString);
+      tickCycles = false;
+    }
   }
   incomingString = "";
 }

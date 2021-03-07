@@ -209,6 +209,9 @@ namespace ArduinoSensorDashboard.ViewModels
             for (var i = 0; i <= remain1; i++) pad1 = pad1 + " ";
             string line1 = "lcd1:" + LcdRow1 + pad1 + "\n";
             SerialHandler.Instance.Write(line1);
+
+            //SerialHandler.Instance.Flush();
+            
             if (LcdRow2 != "")
                 remain2 = 16;
             else
@@ -227,7 +230,7 @@ namespace ArduinoSensorDashboard.ViewModels
                 string newNum = SerialHandler.Instance.Read();
                 if (newNum != "") ctx.NumberString = newNum;
 
-                Thread.Sleep(100);
+                Thread.Sleep(200);
             }
         }
     }

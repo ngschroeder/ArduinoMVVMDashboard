@@ -39,5 +39,10 @@ namespace ArduinoSensorDashboard
         {
             _serialPort.Open();
         }
+
+        public void Flush()
+        {
+            _serialPort.DiscardOutBuffer();
+        }
     }
 }
