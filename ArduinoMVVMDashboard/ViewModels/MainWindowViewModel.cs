@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Ports;
 using System.Threading;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -10,6 +11,8 @@ namespace ArduinoSensorDashboard.ViewModels
     {
         private bool _counting;
         private int _number;
+        private string[] _ports = SerialPort.GetPortNames();
+        private string _selectedPort;
         private string _connectBtnColor = "LightGreen";
         private string _connectBtnContent = "Connect";
         private string _connectBtnEnabled = "True";
@@ -22,6 +25,21 @@ namespace ArduinoSensorDashboard.ViewModels
         private string _sendBtnColor = "Gray";
         private string _sendBtnEnabled = "False";
         private string _unit = "cm";
+
+        public string[] Ports
+        {
+            get => _ports;
+            set => this.RaiseAndSetIfChanged(ref _ports, value);
+        }
+        
+        public string SelectedPort
+        {
+            get => _selectedPort;
+            set
+            {
+                this.RaiseAndSetIfChanged(ref _selectedPort, value);
+            } 
+        }
 
         private bool Counting
         {
@@ -122,14 +140,24 @@ namespace ArduinoSensorDashboard.ViewModels
         {
             if (Equals(sender, "Connect"))
             {
-                SerialHandler.Instance.Write("start");
-                ConnectBtnContent = "Connected";
-                ConnectBtnColor = "Gray";
-                ConnectBtnEnabled = "False";
-                DistBtnEnabled = "True";
-                DistBtnColor = "LightGreen";
-                SendBtnEnabled = "True";
-                SendBtnColor = "LightGreen";
+                try
+                {
+                    SerialHandler.Instance.SetPort(SelectedPort);
+                    SerialHandler.Instance.Open();
+                    SerialHandler.Instance.Write("start");
+                    ConnectBtnContent = "Connected";
+                    ConnectBtnColor = "Gray";
+                    ConnectBtnEnabled = "False";
+                    DistBtnEnabled = "True";
+                    DistBtnColor = "LightGreen";
+                    SendBtnEnabled = "True";
+                    SendBtnColor = "LightGreen";
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
             }
         }
 

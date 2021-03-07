@@ -90,6 +90,7 @@ void checkPort() {
     incomingString.replace("lcd1:", "");
     lcd.setCursor(0, 0);
     lcd.print(incomingString);
+    tickCycles = false;
   }
   if (incomingString.startsWith("lcd2")){
     incomingString.replace("lcd2:", "");

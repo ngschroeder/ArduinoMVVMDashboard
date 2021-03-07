@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.IO.Ports;
 
 namespace ArduinoSensorDashboard
@@ -9,11 +11,9 @@ namespace ArduinoSensorDashboard
         private SerialHandler()
         {
             _serialPort = new SerialPort();
-            _serialPort.PortName = "/dev/cu.usbmodem142101"; //Set your board COM
             _serialPort.BaudRate = 9600;
             _serialPort.DataBits = 8;
             _serialPort.StopBits = StopBits.One;
-            _serialPort.Open();
         }
 
         public static SerialHandler Instance { get; } = new();
@@ -27,8 +27,17 @@ namespace ArduinoSensorDashboard
         {
             string result = _serialPort.ReadExisting();
             _serialPort.DiscardInBuffer();
-
             return result;
+        }
+
+        public void SetPort(string portName)
+        {
+            _serialPort.PortName = portName;
+        }
+
+        public void Open()
+        {
+            _serialPort.Open();
         }
     }
 }

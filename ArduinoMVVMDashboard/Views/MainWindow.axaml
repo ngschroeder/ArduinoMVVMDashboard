@@ -8,28 +8,27 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="Arduino Sensor Dashboard"
         Height="190"
-        Width="280"
+        Width="300"
         CanResize="False">
 
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
     <Grid>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1.2*" />
             <ColumnDefinition Width="1.5*" />
             <ColumnDefinition Width="0.75*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="1.25*" />
-
         </Grid.RowDefinitions>
 
         <Button Grid.Row="0"
-                Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ColumnDefinitions.Count, Mode=OneWay}"
+                Grid.Column="0"
                 Content="{Binding ConnectBtnContent}"
                 Name="ConnectBtn"
                 Margin="5,10"
@@ -39,6 +38,14 @@
                 Command="{Binding ConnectCommand}"
                 CommandParameter="{Binding ElementName=ConnectBtn,Path=Content}"
                 HorizontalAlignment="Center" />
+        <ComboBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                 Items="{Binding Ports}"
+                 SelectedItem="{Binding SelectedPort}"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 MaxWidth="160"
+                 SelectedIndex="0"></ComboBox>
+        
         <Button Grid.Row="1" Grid.Column="0" Content="{Binding DistBtnContent}"
                 Name="DistBtn"
                 Margin="5,10"
@@ -51,6 +58,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NumberString}" HorizontalAlignment="Right"
                    VerticalAlignment="Center" Padding="0,0,20,0" />
         <Button Grid.Row="1" Grid.Column="2" Content="Unit" Command="{Binding ChangeUnit}" HorizontalAlignment="Center" />
+        
         <Button Grid.Row="2" Grid.Column="0" Content="Send"
                 Name="SendBtn"
                 Margin="5,10"
