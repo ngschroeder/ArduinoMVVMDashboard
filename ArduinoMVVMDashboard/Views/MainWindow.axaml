@@ -1,0 +1,110 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ArduinoSensorDashboard.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="200"
+        x:Class="ArduinoSensorDashboard.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Arduino Sensor Dashboard"
+        Height="190"
+        Width="280"
+        CanResize="False">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="0.75*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1.25*" />
+
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Grid.ColumnSpan="{Binding RelativeSource={RelativeSource AncestorType=Grid}, Path=ColumnDefinitions.Count, Mode=OneWay}"
+                Content="{Binding ConnectBtnContent}"
+                Name="ConnectBtn"
+                Margin="5,10"
+                Background="{Binding ConnectBtnColor}"
+                FontSize="18"
+                IsEnabled="{Binding ConnectBtnEnabled}"
+                Command="{Binding ConnectCommand}"
+                CommandParameter="{Binding ElementName=ConnectBtn,Path=Content}"
+                HorizontalAlignment="Center" />
+        <Button Grid.Row="1" Grid.Column="0" Content="{Binding DistBtnContent}"
+                Name="DistBtn"
+                Margin="5,10"
+                Background="{Binding DistBtnColor}"
+                FontSize="18"
+                IsEnabled="{Binding DistBtnEnabled}"
+                Command="{Binding DistanceCommand}"
+                CommandParameter="{Binding ElementName=DistBtn,Path=Content}"
+                HorizontalAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NumberString}" HorizontalAlignment="Right"
+                   VerticalAlignment="Center" Padding="0,0,20,0" />
+        <Button Grid.Row="1" Grid.Column="2" Content="Unit" Command="{Binding ChangeUnit}" HorizontalAlignment="Center" />
+        <Button Grid.Row="2" Grid.Column="0" Content="Send"
+                Name="SendBtn"
+                Margin="5,10"
+                Background="{Binding SendBtnColor}"
+                FontSize="18"
+                IsEnabled="{Binding SendBtnEnabled}"
+                Command="{Binding SendBtnCommand}"
+                CommandParameter="{Binding ElementName=ConnectBtn,Path=Content}"
+                HorizontalAlignment="Center" />
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox Name="LcdRow1"
+                     Text="{Binding LcdRow1}"
+                     MaxLength="16"
+                     MinHeight="28"
+                     MaxHeight="28"
+                     MinWidth="128"
+                     MaxWidth="128"
+                     FontSize="12"
+                     FontFamily="Courier New"
+                     FontWeight="Bold"
+                     Padding="4,6,4,6"
+                     Margin="2" />
+            <TextBox Name="LcdRow2"
+                     Text="{Binding LcdRow2}"
+                     MaxLength="16"
+                     MinHeight="28"
+                     MaxHeight="28"
+                     MinWidth="128"
+                     MaxWidth="128"
+                     FontSize="12"
+                     FontFamily="Courier New"
+                     FontWeight="Bold"
+                     Padding="4,6,4,6"
+                     Margin="2" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <TextBlock Text="Line 1"
+                       MinHeight="28"
+                       MaxHeight="28"
+                       MinWidth="128"
+                       MaxWidth="128"
+                       FontSize="12"
+                       FontFamily="Courier New"
+                       Padding="36,8,0,0"
+                       Margin="2" />
+            <TextBlock Text="Line 2"
+                       MinHeight="28"
+                       MaxHeight="28"
+                       MinWidth="128"
+                       MaxWidth="128"
+                       FontSize="12"
+                       FontFamily="Courier New"
+                       Padding="36,8,0,0"
+                       Margin="2" />
+        </StackPanel>
+    </Grid>
+</Window>
