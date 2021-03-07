@@ -13,4 +13,4 @@ The desktop application uses MVVM (with only bindings, no code-behind) to connec
 
 ### Application
 
-<img width="286" alt="Screen Shot 2021-03-07 at 12 09 45 AM" src="https://user-images.githubusercontent.com/16778828/110229705-71f7cb80-7ed9-11eb-993b-1f3178aba126.png">
+<img width="304" alt="Screen Shot 2021-03-07 at 1 24 39 PM" src="https://user-images.githubusercontent.com/16778828/110250290-8cb55900-7f48-11eb-9eda-c8fa81918c34.png">
