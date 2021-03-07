@@ -1,5 +1,5 @@
 # ArduinoMVVMDashboard
-A cross-platform AvaloniaUI framework app that connects to and controls an Arduino Mega. Includes diagram and sketch.
+A cross-platform AvaloniaUI framework app that connects to and controls samples on an Arduino Mega. Includes diagram and sketch.
 
 ## About
 
