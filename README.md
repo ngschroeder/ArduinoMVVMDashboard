@@ -7,15 +7,15 @@ This is a pretty simple project that demonstrates various functionality covering
 
 The desktop application to connect, report the distance, and send text to the LCD.
 
-### Board Diagram
+## Board Diagram
 
 ![ArduinoMonitor_bb](https://user-images.githubusercontent.com/16778828/110229295-62c34e80-7ed6-11eb-84c9-bcf18a295495.png)
 
-### Sketch
+## Sketch
 
 The sketch is included in ArduinoMVVMDashboard/Sketch/ArduinoMegaMonitor/ and is fully annotated.
 
-### Application
+## Application
 
 The app uses [AvaloniaUI Framework](https://avaloniaui.net/)'s ReactiveUI implementation. This is my first foray into MVVM, so I'm sure I've committed some cardinal sins, but I'm very proud of the fact that there is no code-behind.
 
