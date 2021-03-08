@@ -19,6 +19,7 @@ namespace ArduinoSensorDashboard.ViewModels
         private string _distBtnColor = "Gray";
         private string _distBtnContent = "Start";
         private string _distBtnEnabled = "False";
+        private string _comboBoxEnabled = "True";
         private string _lcdRow1;
         private string _lcdRow2;
         private string _numberString = "N/A";
@@ -80,6 +81,13 @@ namespace ArduinoSensorDashboard.ViewModels
             set => this.RaiseAndSetIfChanged(ref _distBtnEnabled, value);
         }
 
+        [NotNull]
+        public string ComboBoxEnabled
+        {
+            get => _comboBoxEnabled;
+            set => this.RaiseAndSetIfChanged(ref _comboBoxEnabled, value);
+        }
+        
         [NotNull]
         public string ConnectBtnContent
         {
@@ -152,6 +160,7 @@ namespace ArduinoSensorDashboard.ViewModels
                     DistBtnColor = "LightGreen";
                     SendBtnEnabled = "True";
                     SendBtnColor = "LightGreen";
+                    ComboBoxEnabled = "False";
                 }
                 catch (Exception e)
                 {

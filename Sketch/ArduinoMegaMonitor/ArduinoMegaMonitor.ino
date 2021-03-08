@@ -19,7 +19,7 @@ int distance;
 int oldDistance;
 int brightness = 0;
 int contrast = 75;
-float brightnessFactor = 0.80;
+float brightnessFactor = 1.0;
 bool sendLoop = false;  
 bool tickCycles = true;
 bool checkingPort = false;
@@ -55,7 +55,7 @@ void loop() {
     }else{
       distance = duration * 0.0133 / 2;
     }
-    brightness = (255 - (distance * 3)) * brightnessFactor;
+    brightness = (255 - (distance * 6)) * brightnessFactor;
     if(brightness < 0){
       brightness = 1;
     }
