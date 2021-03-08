@@ -5,7 +5,7 @@ A cross-platform AvaloniaUI framework app that connects to and controls samples 
 
 This is a pretty simple project that demonstrates various functionality covering several areas. It uses the standard HC-SR04 Ultrasonic sensor to report distance, which will increase the brightness of the LED the closer the sensor is to an object. Additionally, there is a 16x2 LCD hooked directly to the Arduino (with contrast set manully to 75 to spare the need for a potentiometer).
 
-The desktop application to connect, report the distance, and send text to the LCD.
+The desktop application can connect, report the distance, and send text to the LCD.
 
 ## Board Diagram
 
