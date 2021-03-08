@@ -1,4 +1,4 @@
-# ArduinoMVVMDashboard
+# Arduino MVVM Dashboard
 A cross-platform AvaloniaUI framework app that connects to and controls samples on an Arduino Mega. Includes diagram and sketch.
 
 ## About
@@ -13,5 +13,7 @@ The desktop application uses MVVM (with only bindings, no code-behind) to connec
 
 ### Application
 
-<img height="300" src="https://user-images.githubusercontent.com/16778828/110264088-70381180-7f86-11eb-83d1-9a035f4a6c20.png"> | <img height="300" src="https://user-images.githubusercontent.com/16778828/110263728-8b565180-7f85-11eb-8269-1a198622c35c.png">
+<img height="300" src="https://user-images.githubusercontent.com/16778828/110264088-70381180-7f86-11eb-83d1-9a035f4a6c20.png">  <img height="300" src="https://user-images.githubusercontent.com/16778828/110263728-8b565180-7f85-11eb-8269-1a198622c35c.png">
+            MacOS                                       Windows
+
 
