@@ -143,7 +143,7 @@ void checkPort() {
       tickCycles = false;
     }
     
-    // LCD line 1 was sent
+    // LCD line 2 was sent
     if (incomingString.startsWith("lcd2")){
       incomingString.replace("lcd2:", "");
       lcd.setCursor(0, 1);
