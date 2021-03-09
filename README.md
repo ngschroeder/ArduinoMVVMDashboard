@@ -21,6 +21,4 @@ The app uses [AvaloniaUI Framework](https://avaloniaui.net/)'s ReactiveUI implem
 
 To demonstrate the true cross-platforminess of this solution, I did a fresh clone of this repo on both Mac and PC, dotnet restored, and ran.
 
-<img height="300" src="https://user-images.githubusercontent.com/16778828/110264088-70381180-7f86-11eb-83d1-9a035f4a6c20.png">  <img height="300" src="https://user-images.githubusercontent.com/16778828/110263728-8b565180-7f85-11eb-8269-1a198622c35c.png">
-
-
+<img height="300" src="https://user-images.githubusercontent.com/16778828/110404284-9922da00-804c-11eb-9562-6d9026ada218.png">  <img height="300" src="https://user-images.githubusercontent.com/16778828/110263728-8b565180-7f85-11eb-8269-1a198622c35c.png">
